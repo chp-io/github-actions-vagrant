@@ -7,6 +7,10 @@ inputs:
   box-version:
     required: false
     default: '>= 0'
+  box-configs:
+    description: 'Additional configuration for vagrant box'
+    required: false
+    default: ''
   run:
     description: 'the commands to run in vm'
     required: true
@@ -88,6 +92,7 @@ runs:
           end
           config.vm.synced_folder "${GITHUB_WORKSPACE}", "/home/vagrant/${GITHUB_REPOSITORY}", type: "${{inputs.sync-type}}"
           config.vm.provision "shell", path: "shell.sh"
+          ${{inputs.box-configs}}
         end
       EOF
       
