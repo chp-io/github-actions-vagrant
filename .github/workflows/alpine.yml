@@ -19,6 +19,10 @@ jobs:
         version: [318]
 
     steps:
+      - name: Setup tmate session
+        uses: mxschmitt/action-tmate@v3
+        with:
+          detached: true
       - uses: leleliu008/github-actions-vagrant@main
         with:
           mem: 2048
