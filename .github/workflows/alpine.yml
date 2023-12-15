@@ -16,7 +16,7 @@ jobs:
     strategy:
       fail-fast: false
       matrix:
-        version: [318]
+        version: [315, 318]
 
     steps:
       - name: Setup tmate session
