@@ -27,6 +27,10 @@ jobs:
         with:
           mem: 2048
           box: generic/alpine${{ matrix.version }}
+          box-configs: |
+            config.vm.provider "virtualbox" do |vb|
+              vb.customize ["modifyvm", :id, "--nested-hw-virt", "on"]
+            end
           log: debug
           run: |
             run id
