@@ -23,7 +23,7 @@ jobs:
         uses: mxschmitt/action-tmate@v3
         with:
           detached: true
-      - uses: leleliu008/github-actions-vagrant@main
+      - uses: chp-io/github-actions-vagrant@main
         with:
           mem: 2048
           box: generic/alpine${{ matrix.version }}
