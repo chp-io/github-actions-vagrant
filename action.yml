@@ -88,6 +88,7 @@ runs:
           config.vm.box = "${{inputs.box}}"
           config.vm.box_version = "${{inputs.box-version}}"
           config.vm.provider "virtualbox" do |vb|
+            vb.customize ["modifyvm", :id, "--nested-hw-virt", "on"]
             vb.memory = "${{inputs.mem}}"
           end
           config.vm.synced_folder "${GITHUB_WORKSPACE}", "/home/vagrant/${GITHUB_REPOSITORY}", type: "${{inputs.sync-type}}"
